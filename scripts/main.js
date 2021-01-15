@@ -62,14 +62,24 @@ const plusMinus = document.querySelector('.plus-minus');
 
 const buttonNum = document.querySelectorAll('.number');
 // const buttonNum = div.querySelector(`[value='9']`);
-console.log(buttonNum);
 function pushNumber(event) {
   console.log(event.target.value);
 }
-
+//i want the function to select the cal screen and display event.target.value
 buttonNum.forEach(function(e){
     e.addEventListener('click', pushNumber);
   });
+
+const buttonOperator = document.querySelectorAll('.operator');
+// const buttonNum = div.querySelector(`[value='9']`);
+function pushOperator(event) {
+  console.log(event.target.value);
+}
+//i want the function to select the cal screen and display event.target.value
+buttonOperator.forEach(function(e){
+    e.addEventListener('click', pushOperator);
+  })
+
 //need to loop
 //inside your loop
 // event.target.addEventListener

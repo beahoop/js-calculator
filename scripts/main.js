@@ -55,6 +55,35 @@ const plusMinus = document.querySelector('.plus-minus');
 // <input type="text" class="calculator-screen" value="0" disabled />
 // const calscreen = document.querySelector(`.calculator-screen`)
 // calscreen.
+//big funcations, list
 
-  console.log(document.querySelector('.calculator-screen').value);
-document.querySelector('.calculator-screen').value = eight.innerHTML
+// Define a function named `pushNumber` that `alert()`s the number associated with its event argument when called; add this function as an event listener for the number buttons
+// const buttonNum = div.querySelectorAll('.number');
+
+const buttonNum = document.querySelectorAll('.number');
+// const buttonNum = div.querySelector(`[value='9']`);
+console.log(buttonNum);
+function pushNumber(event) {
+  console.log(event.target.value);
+}
+
+buttonNum.forEach(function(e){
+    e.addEventListener('click', pushNumber);
+  });
+//need to loop
+//inside your loop
+// event.target.addEventListener
+//add a eventerlister to each item in the node list
+//note list method to loop,
+//on click do this function
+//is the event object
+//drill down to the
+
+// console.log(buttonNum);
+
+//
+// buttonNum.addEventListener('click', pushNumber);
+//
+// console.log(buttonNum);
+
+// document.querySelector('.calculator-screen').value = eight.innerHTML

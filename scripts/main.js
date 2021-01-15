@@ -8,79 +8,6 @@
 // just display one number , use an eventlister
 //try to get 2+2
 
-//numbers
-const ozero = document.querySelector(`[value='0']`);
-  // console.log(ozero);
-const one = document.querySelector(`[value='1']`);
-  // console.log(one);
-const two = document.querySelector(`[value='2']`);
-  // console.log(two);
-const three = document.querySelector(`[value='3']`);
-  // console.log(three);
-const four = document.querySelector(`[value='4']`);
-  // console.log(four);
-const five = document.querySelector(`[value='5']`);
-  // console.log(five);
-const six = document.querySelector(`[value='6']`);
-  // console.log(six);
-const seven = document.querySelector(`[value='7']`);
-  // console.log(seven);
-const eight = document.querySelector(`[value='8']`);
-  // console.log(eight);
-const nine = document.querySelector(`[value='9']`);
-  // console.log(nine);
-
-//operator
-const percent = document.querySelector(`[value='percent']`);
-  // console.log(percent);
-const divide = document.querySelector(`[value='/']`);
-  // console.log(divide);
-const times = document.querySelector(`[value='*']`);
-  // console.log(times);
-  const minus = document.querySelector(`[value='-']`);
-    // console.log(minus);
-  const plus = document.querySelector(`[value='+']`);
-    // console.log(plus);
-  const decimal = document.querySelector(`[value='.']`);
-    // console.log(decimal);
-  const equal = document.querySelector(`[value='=']`);
-    // console.log(equal);
-
-//function
-const clear = document.querySelector('.clear') ;
-  // console.log(clear);
-const plusMinus = document.querySelector('.plus-minus');
-  // console.log(plusMinus);
-
-// <input type="text" class="calculator-screen" value="0" disabled />
-// const calscreen = document.querySelector(`.calculator-screen`)
-// calscreen.
-//big funcations, list
-
-// Define a function named `pushNumber` that `alert()`s the number associated with its event argument when called; add this function as an event listener for the number buttons
-// const buttonNum = div.querySelectorAll('.number');
-///////////////////////NUMBERS//////////////////
-const buttonNum = document.querySelectorAll('.number');
-
-function pushNumber(event) {
-  console.log(event.target.value);
-}
-//i want the function to select the cal screen and display event.target.value
-buttonNum.forEach(function(e){
-    e.addEventListener('click', pushNumber);
-  });
-/////////////////////////////////////////////
-
-///////////////////////OPERATORS//////////////////
-const buttonOperator = document.querySelectorAll('.operator');
-
-function pushOperator(event) {
-  console.log(event.target.value);
-}
-buttonOperator.forEach(function(e){
-    e.addEventListener('click', pushOperator);
-  })
-
 
 //i want the function to select the cal screen and display event.target.value
 //functionName addtoscreen()
@@ -90,46 +17,167 @@ buttonOperator.forEach(function(e){
 //document.querySelector('.calculator-screen').value = eight.innerHTML
 /////////////////////////////////////////////
 
-/////////////////EQUAL SIGN/////////////////////
-//<button type="button" class="equal-sign" value="=">=</button>
+
+
+// <input type="text" class="calculator-screen" value="0" disabled />
+// const calscreen = document.querySelector(`.calculator-screen`)
+// calscreen.
+//big funcations, list
+
+// Define a function named `pushNumber` that `alert()`s the number associated with its event argument when called; add this function as an event listener for the number buttons
+// const buttonNum = div.querySelectorAll('.number');
+//////////////////
+const buttonNum = document.querySelectorAll('.number');
+const buttonOperator = document.querySelectorAll('.operator');
+const buttonClear = document.querySelectorAll('.clear');
+const buttonPlusMinus = document.querySelectorAll('.plus-minus');
+const buttonPercent = document.querySelectorAll('.percent');
+const buttonOzero = document.querySelectorAll('.number btn-lg');
+const buttonDecimal = document.querySelectorAll('.decimal');
 const buttonEqual = document.querySelectorAll('.equal-sign');
 
-function calculate(event) {
-  let val = (event.target.value);
-  console.log(val);
+///////////////////////NUMBERS//////////////////
+
+buttonNum.forEach(function(e){
+    e.addEventListener('click', pushNumber);
+  });
+
+function pushNumber(event) {
+  if(calDisplay.value == "0") {
+    calDisplay.value = null;
+    calDisplay.value = (calDisplay.value + event.target.value);
+    } else {
+  calDisplay.value = (calDisplay.value + event.target.value);
+  }
+  console.log(event.target.value);
 }
-//i want the function to select the cal screen and display event.target.value
-buttonEqual.forEach(function(e){
-    e.addEventListener('click', calculate);
-  })
-
-
 /////////////////////////////////////////////
+
+///////////////////////OPERATORS//////////////////
+// const buttonOperator = document.querySelectorAll('.operator');
+// function pushOperator(event) {
+//   console.log(event.target.value);
+// }
+buttonOperator.forEach(function(e){
+    e.addEventListener('click', pushOperator);
+  });
+
+  function pushOperator(event) {
+    if(calDisplay.value == "0") {
+      calDisplay.value = null;
+      calDisplay.value = (calDisplay.value + event.target.value);
+      } else {
+    calDisplay.value = (calDisplay.value + event.target.value);
+    }
+    console.log(event.target.value);
+  }
+//////////////////////////////////////////////
+
+const calDisplay = document.querySelector('.calculator-screen');
+
+
+///////////////CLEAR /////////////////
+// const buttonClear = document.querySelectorAll('.clear');
+//when you hit clear the array needs to be set back to empty array
+
+function clickClear() {
+  calDisplay.value = 0;
+}
+
+buttonClear.forEach(function(e){
+    e.addEventListener('click', clickClear);
+  });
+
+
+/////////////////////////////////
+
+
+///////////////////////PLUS MINUS//////////////////
+// const buttonPlusMinus = document.querySelectorAll('.plus-minus');
+function pushPlusMinus(event) {
+  console.log(event.target.value);
+}
+buttonPlusMinus.forEach(function(e){
+    e.addEventListener('click', pushPlusMinus);
+  });
+//////////////////////////////////////////////
+
+///////////////////////PRECENT//////////////////
+// const buttonPercent = document.querySelectorAll('.percent');
+function pushPercent(event) {
+  console.log(event.target.value);
+}
+buttonPercent.forEach(function(e){
+    e.addEventListener('click', pushPercent);
+  });
+//////////////////////////////////////////////
+
+///////////////////////OZERO//////////////////
+// const buttonOzero = document.querySelectorAll('.number btn-lg');
+function pushOzero(event) {
+  console.log(event.target.value);
+}
+buttonOzero.forEach(function(e){
+    e.addEventListener('click', pushOzero);
+  });
+//////////////////////////////////////////////
+
+///////////////////////OZERO//////////////////
+// const buttonDecimal = document.querySelectorAll('.decimal');
+function pushDecimal(event) {
+  console.log(event.target.value);
+}
+buttonDecimal.forEach(function(e){
+    e.addEventListener('click', pushDecimal);
+  });
+//////////////////////////////////////////////
+
+
+///////////////////////EQAUL SIGN//////////////////
+// const const buttonEqual = document.querySelectorAll('.equal-sign');
+function pushEqual(event) {
+  console.log(event.target.value);
+}
+buttonEqual.forEach(function(e){
+    e.addEventListener('click', pushEqual);
+  });
+//////////////////////////////////////////////
+
+
 
 
 /////////////////CALCULATION/////////////////////
 //Using `Array.prototype.push`, perform actions on the `calculation` variable when numbers and operators are pressed
-let calculation = [6];
-calculation = `${calculations}+${calculation.push(4)}`;
+// let calculation = [];
+// // calculation = `${calculations}+${calculation.push(4)}`;
+// //control flow
+//
+// function add() {
+//
+// }
+// //if I hit number button then
+// //if I hit this then add this to this
+// // else do this
+//
+// calculation.forEach(add);
 
-console.log(calculation);
+// function add(new_element){
+// 	let arr = [1,2,3,4,5];
+// 	for(let i=0;i<arr.length;i++){
+// 		arr.push(new_element);
+// 	}
+//
+// 	return arr;
+// }
+// console.log(add("a"));
 //when a button is pushed at it to the calculation Array
 //I need the click event to store somehwere I can call it back on too.
 /////////////////////////////////////////////
 
-/////////////////SHOWS WHAT YOU HIT ON CAL SCREEN/////////////////////
-document.querySelector('.calculator-keys')
-  .addEventListener('click', event => {
-    let target = event.target;
-    if (target.matches('button')) {
-      let value = target.innerHTML
-      document.querySelector('.calculator-screen').value = value
-    }
-  });
-  /////////////////////////////////////////////
 
 //
-
+//  <input type="text" class="calculator-screen" value="0" disabled />
+//I can change the input
 
 
 //need to loop

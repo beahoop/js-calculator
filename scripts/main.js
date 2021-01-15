@@ -61,7 +61,7 @@ const plusMinus = document.querySelector('.plus-minus');
 // const buttonNum = div.querySelectorAll('.number');
 ///////////////////////NUMBERS//////////////////
 const buttonNum = document.querySelectorAll('.number');
-// const buttonNum = div.querySelector(`[value='9']`);
+
 function pushNumber(event) {
   console.log(event.target.value);
 }
@@ -70,27 +70,68 @@ buttonNum.forEach(function(e){
     e.addEventListener('click', pushNumber);
   });
 /////////////////////////////////////////////
+
 ///////////////////////OPERATORS//////////////////
 const buttonOperator = document.querySelectorAll('.operator');
-// const buttonNum = div.querySelector(`[value='9']`);
+
 function pushOperator(event) {
   console.log(event.target.value);
 }
-//i want the function to select the cal screen and display event.target.value
 buttonOperator.forEach(function(e){
     e.addEventListener('click', pushOperator);
   })
+
+
+//i want the function to select the cal screen and display event.target.value
+//functionName addtoscreen()
+//function parameters/inputs buttonOperator
+//function output
+//exepction
+//document.querySelector('.calculator-screen').value = eight.innerHTML
+/////////////////////////////////////////////
+
 /////////////////EQUAL SIGN/////////////////////
 //<button type="button" class="equal-sign" value="=">=</button>
 const buttonEqual = document.querySelectorAll('.equal-sign');
-// const buttonNum = div.querySelector(`[value='9']`);
+
 function calculate(event) {
-  console.log(event.target.value);
+  let val = (event.target.value);
+  console.log(val);
 }
 //i want the function to select the cal screen and display event.target.value
 buttonEqual.forEach(function(e){
     e.addEventListener('click', calculate);
   })
+
+
+/////////////////////////////////////////////
+
+
+/////////////////CALCULATION/////////////////////
+//Using `Array.prototype.push`, perform actions on the `calculation` variable when numbers and operators are pressed
+let calculation = [6];
+calculation = `${calculations}+${calculation.push(4)}`;
+
+console.log(calculation);
+//when a button is pushed at it to the calculation Array
+//I need the click event to store somehwere I can call it back on too.
+/////////////////////////////////////////////
+
+/////////////////SHOWS WHAT YOU HIT ON CAL SCREEN/////////////////////
+document.querySelector('.calculator-keys')
+  .addEventListener('click', event => {
+    let target = event.target;
+    if (target.matches('button')) {
+      let value = target.innerHTML
+      document.querySelector('.calculator-screen').value = value
+    }
+  });
+  /////////////////////////////////////////////
+
+//
+
+
+
 //need to loop
 //inside your loop
 // event.target.addEventListener
@@ -99,12 +140,3 @@ buttonEqual.forEach(function(e){
 //on click do this function
 //is the event object
 //drill down to the
-
-// console.log(buttonNum);
-
-//
-// buttonNum.addEventListener('click', pushNumber);
-//
-// console.log(buttonNum);
-
-// document.querySelector('.calculator-screen').value = eight.innerHTML

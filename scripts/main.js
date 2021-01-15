@@ -1,3 +1,158 @@
+
+const buttonNum = document.querySelectorAll('.number');
+const buttonOperator = document.querySelectorAll('.operator');
+const buttonClear = document.querySelectorAll('.clear');
+const buttonPlusMinus = document.querySelectorAll('.plus-minus');
+const buttonPercent = document.querySelectorAll('.percent');
+const buttonOzero = document.querySelectorAll('.number btn-lg');
+const buttonDecimal = document.querySelectorAll('.decimal');
+const buttonEqual = document.querySelectorAll('.equal-sign');
+const calDisplay = document.querySelector('.calculator-screen');
+
+let calculation = [];
+
+///////////////////////NUMBERS//////////////////
+
+buttonNum.forEach(function(e){
+    e.addEventListener('click', pushNumber);
+  });
+buttonOperator.forEach(function(e){
+    e.addEventListener('click', pushOperator);
+  });
+buttonClear.forEach(function(e){
+    e.addEventListener('click', clickClear);
+  });
+buttonPlusMinus.forEach(function(e){
+    e.addEventListener('click', pushPlusMinus);
+  });
+buttonPercent.forEach(function(e){
+    e.addEventListener('click', pushPercent);
+  });
+buttonOzero.forEach(function(e){
+    e.addEventListener('click', pushOzero);
+  });
+buttonDecimal.forEach(function(e){
+    e.addEventListener('click', pushDecimal);
+  });
+
+buttonEqual.forEach(function(e){
+    e.addEventListener('click', pushEqual);
+  });
+
+
+function clickClear() {
+  calDisplay.value = 0;
+}
+function pushNumber(event) {
+  if(calDisplay.value == "0") {
+    calDisplay.value = null;
+    calDisplay.value = (calDisplay.value + event.target.value);
+    calculation.push(event.target.value);
+    console.log(calculation);
+    } else {
+  calDisplay.value = (calDisplay.value + event.target.value);
+  calculation.push(event.target.value);
+  console.log(calculation);
+  }
+
+
+//array.push(value of the event that is a happenign to the event listener)
+
+
+}
+function pushOperator(event) {
+  if(calDisplay.value == "0") {
+    calDisplay.value = null;
+    calDisplay.value = (calDisplay.value + event.target.value);
+    calculation.push(event.target.value);
+    console.log(calculation);
+    } else {
+  calDisplay.value = (calDisplay.value + event.target.value);
+  calculation.push(event.target.value);
+  console.log(calculation);
+  }
+}
+
+function pushPlusMinus(event) {
+  if(calDisplay.value == "0") {
+    calDisplay.value = null;
+    calDisplay.value = (calDisplay.value + event.target.value);
+    } else {
+  calDisplay.value = (calDisplay.value + event.target.value);
+  }
+}
+function pushPercent(event) {
+  if(calDisplay.value == "0") {
+    calDisplay.value = null;
+    calDisplay.value = (calDisplay.value + event.target.value);
+    } else {
+  calDisplay.value = (calDisplay.value + event.target.value);
+  }
+}
+function pushOzero(event) {
+  if(calDisplay.value == "0") {
+    calDisplay.value = null;
+    calDisplay.value = (calDisplay.value + event.target.value);
+    } else {
+  calDisplay.value = (calDisplay.value + event.target.value);
+  }
+}
+function pushDecimal(event) {
+  if(calDisplay.value == "0") {
+    calDisplay.value = null;
+    calDisplay.value = (calDisplay.value + event.target.value);
+    } else {
+  calDisplay.value = (calDisplay.value + event.target.value);
+  }
+}
+//decimal should only show up once between 0.000 and not be allowed to
+//display in any other order
+//2.0 + 3 = tell it the cal it shouldn't keep the .0
+// dividing by 0 can't do this or NaN
+
+
+
+
+
+
+
+function pushEqual(event) {
+  calculation = calculation.join('');
+  calculation = eval(calculation);
+  calDisplay.value = calculation;
+}
+
+//if equal is clicked read the array
+//equal will have to go thru the array how to turn a string into a number
+//build in method for string into number
+//equal needs to take the event listener and do an math function with the given array.
+//
+
+
+
+///////////////CALCULATION/////////////////////
+// Using `Array.prototype.push`, perform actions on the `calculation` variable when numbers and operators are pressed
+
+// calculation = `${calculations}+${calculation.push(4)}`;
+//control flow
+
+//if I hit number button then
+//if I hit this then add this to this
+// else do this
+
+
+
+// when a button is pushed at it to the calculation Array
+// I need the click event to store somehwere I can call it back on too.
+///////////////////////////////////////////
+
+
+//
+//  <input type="text" class="calculator-screen" value="0" disabled />
+//I can change the input
+
+//comments, thinking process, notes below
+
 //write flow chart
 //atomic level of whatever you are doing
 // what do you know how to do
@@ -27,157 +182,7 @@
 // Define a function named `pushNumber` that `alert()`s the number associated with its event argument when called; add this function as an event listener for the number buttons
 // const buttonNum = div.querySelectorAll('.number');
 //////////////////
-const buttonNum = document.querySelectorAll('.number');
-const buttonOperator = document.querySelectorAll('.operator');
-const buttonClear = document.querySelectorAll('.clear');
-const buttonPlusMinus = document.querySelectorAll('.plus-minus');
-const buttonPercent = document.querySelectorAll('.percent');
-const buttonOzero = document.querySelectorAll('.number btn-lg');
-const buttonDecimal = document.querySelectorAll('.decimal');
-const buttonEqual = document.querySelectorAll('.equal-sign');
 
-///////////////////////NUMBERS//////////////////
-
-buttonNum.forEach(function(e){
-    e.addEventListener('click', pushNumber);
-  });
-
-function pushNumber(event) {
-  if(calDisplay.value == "0") {
-    calDisplay.value = null;
-    calDisplay.value = (calDisplay.value + event.target.value);
-    } else {
-  calDisplay.value = (calDisplay.value + event.target.value);
-  }
-  console.log(event.target.value);
-}
-/////////////////////////////////////////////
-
-///////////////////////OPERATORS//////////////////
-// const buttonOperator = document.querySelectorAll('.operator');
-// function pushOperator(event) {
-//   console.log(event.target.value);
-// }
-buttonOperator.forEach(function(e){
-    e.addEventListener('click', pushOperator);
-  });
-
-  function pushOperator(event) {
-    if(calDisplay.value == "0") {
-      calDisplay.value = null;
-      calDisplay.value = (calDisplay.value + event.target.value);
-      } else {
-    calDisplay.value = (calDisplay.value + event.target.value);
-    }
-    console.log(event.target.value);
-  }
-//////////////////////////////////////////////
-
-const calDisplay = document.querySelector('.calculator-screen');
-
-
-///////////////CLEAR /////////////////
-// const buttonClear = document.querySelectorAll('.clear');
-//when you hit clear the array needs to be set back to empty array
-
-function clickClear() {
-  calDisplay.value = 0;
-}
-
-buttonClear.forEach(function(e){
-    e.addEventListener('click', clickClear);
-  });
-
-
-/////////////////////////////////
-
-
-///////////////////////PLUS MINUS//////////////////
-// const buttonPlusMinus = document.querySelectorAll('.plus-minus');
-function pushPlusMinus(event) {
-  console.log(event.target.value);
-}
-buttonPlusMinus.forEach(function(e){
-    e.addEventListener('click', pushPlusMinus);
-  });
-//////////////////////////////////////////////
-
-///////////////////////PRECENT//////////////////
-// const buttonPercent = document.querySelectorAll('.percent');
-function pushPercent(event) {
-  console.log(event.target.value);
-}
-buttonPercent.forEach(function(e){
-    e.addEventListener('click', pushPercent);
-  });
-//////////////////////////////////////////////
-
-///////////////////////OZERO//////////////////
-// const buttonOzero = document.querySelectorAll('.number btn-lg');
-function pushOzero(event) {
-  console.log(event.target.value);
-}
-buttonOzero.forEach(function(e){
-    e.addEventListener('click', pushOzero);
-  });
-//////////////////////////////////////////////
-
-///////////////////////OZERO//////////////////
-// const buttonDecimal = document.querySelectorAll('.decimal');
-function pushDecimal(event) {
-  console.log(event.target.value);
-}
-buttonDecimal.forEach(function(e){
-    e.addEventListener('click', pushDecimal);
-  });
-//////////////////////////////////////////////
-
-
-///////////////////////EQAUL SIGN//////////////////
-// const const buttonEqual = document.querySelectorAll('.equal-sign');
-function pushEqual(event) {
-  console.log(event.target.value);
-}
-buttonEqual.forEach(function(e){
-    e.addEventListener('click', pushEqual);
-  });
-//////////////////////////////////////////////
-
-
-
-
-/////////////////CALCULATION/////////////////////
-//Using `Array.prototype.push`, perform actions on the `calculation` variable when numbers and operators are pressed
-// let calculation = [];
-// // calculation = `${calculations}+${calculation.push(4)}`;
-// //control flow
-//
-// function add() {
-//
-// }
-// //if I hit number button then
-// //if I hit this then add this to this
-// // else do this
-//
-// calculation.forEach(add);
-
-// function add(new_element){
-// 	let arr = [1,2,3,4,5];
-// 	for(let i=0;i<arr.length;i++){
-// 		arr.push(new_element);
-// 	}
-//
-// 	return arr;
-// }
-// console.log(add("a"));
-//when a button is pushed at it to the calculation Array
-//I need the click event to store somehwere I can call it back on too.
-/////////////////////////////////////////////
-
-
-//
-//  <input type="text" class="calculator-screen" value="0" disabled />
-//I can change the input
 
 
 //need to loop

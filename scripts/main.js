@@ -59,7 +59,7 @@ const plusMinus = document.querySelector('.plus-minus');
 
 // Define a function named `pushNumber` that `alert()`s the number associated with its event argument when called; add this function as an event listener for the number buttons
 // const buttonNum = div.querySelectorAll('.number');
-
+///////////////////////NUMBERS//////////////////
 const buttonNum = document.querySelectorAll('.number');
 // const buttonNum = div.querySelector(`[value='9']`);
 function pushNumber(event) {
@@ -69,7 +69,8 @@ function pushNumber(event) {
 buttonNum.forEach(function(e){
     e.addEventListener('click', pushNumber);
   });
-
+/////////////////////////////////////////////
+///////////////////////OPERATORS//////////////////
 const buttonOperator = document.querySelectorAll('.operator');
 // const buttonNum = div.querySelector(`[value='9']`);
 function pushOperator(event) {
@@ -79,7 +80,17 @@ function pushOperator(event) {
 buttonOperator.forEach(function(e){
     e.addEventListener('click', pushOperator);
   })
-
+/////////////////EQUAL SIGN/////////////////////
+//<button type="button" class="equal-sign" value="=">=</button>
+const buttonEqual = document.querySelectorAll('.equal-sign');
+// const buttonNum = div.querySelector(`[value='9']`);
+function calculate(event) {
+  console.log(event.target.value);
+}
+//i want the function to select the cal screen and display event.target.value
+buttonEqual.forEach(function(e){
+    e.addEventListener('click', calculate);
+  })
 //need to loop
 //inside your loop
 // event.target.addEventListener

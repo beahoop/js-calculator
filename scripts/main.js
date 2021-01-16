@@ -1,13 +1,13 @@
 
 // const buttonNum = document.querySelectorAll('.number');
 
-const buttonClear = document.querySelector('.clear');
+// const buttonClear = document.querySelector('.clear');
 // const buttonPlusMinus = document.querySelector('.plus-minus');
 // const buttonPercent = document.querySelector('.percent');
 // const buttonOzero = document.querySelector('.number btn-lg');
 // const buttonDecimal = document.querySelector('.decimal');
 // const buttonEqual = document.querySelector('.equal-sign');
-let calDisplay = document.querySelector('.calculator-screen');
+
 
 
 // buttonNum.forEach(function (btn) {
@@ -95,9 +95,14 @@ let calDisplay = document.querySelector('.calculator-screen');
 //
 // }
 ////////////WHAT I JUST ADDED/////////////////////
+
+
+
+
 let num1;
 let num2;
 let operator;
+let calDisplay = document.querySelector('.calculator-screen');
 
 const numberButtons = document.querySelectorAll('.number');
 function setNumsVal(e) {
@@ -150,22 +155,31 @@ function calculate() {
         let result = num1 / num2
         document.querySelector('.calculator-screen').value = +result.toFixed(3);
         num1 = result
-    } else if (operator === 'x') {
+    } else if (operator === '*') {
         let result = num1 * num2
         document.querySelector('.calculator-screen').value = +result.toFixed(3);
         num1 = result
     }
 }
+const bEqual = document.querySelector('.equal-sign');
+bEqual.addEventListener("click", calculate);
 
-function allClear() {
-	//need to remove the onclick in the html and call it in here
-    document.querySelector('.calculator-screen').value = '0'
-    num1 = null;
+function clickClear() {
+	// console.log("Hey");
+    calDisplay.value = 0;
+		num1 = null;
     num2 = null;
     operator = undefined;
 }
+const bClear = document.querySelector('.clear');
+bClear.addEventListener("click", clickClear);
 
-const buttonClear = document.querySelector('.clear');
+
+//
+// buttonClear.forEach(function (btn) {btn.addEventListener('click', allClear)
+// });
+
+//////
 
 ///////////////////////eventlister//////////////////
 //

@@ -7,7 +7,7 @@ const buttonPercent = document.querySelectorAll('.percent');
 const buttonOzero = document.querySelectorAll('.number btn-lg');
 const buttonDecimal = document.querySelectorAll('.decimal');
 const buttonEqual = document.querySelectorAll('.equal-sign');
-const calDisplay = document.querySelector('.calculator-screen');
+let calDisplay = document.querySelector('.calculator-screen');
 
 let calculation = [];
 
@@ -118,9 +118,22 @@ function pushDecimal(event) {
 
 function pushEqual(event) {
   calculation = calculation.join('');
-  calculation = eval(calculation);
-  calDisplay.value = calculation;
+  calDisplay = eval(calculation);
+
 }
+//parseFloat this will turn a string into a number
+// const nums = '0123456789'-> needs to be a
+//
+// for (var i = 0; i < calculation.length; i++) {
+//   calculation[i]
+
+
+//   if(nums.includes(calculation[i])){
+//   }
+//
+// }
+
+//for loop we want it to go over array pick out numbers and operators
 
 //if equal is clicked read the array
 //equal will have to go thru the array how to turn a string into a number
